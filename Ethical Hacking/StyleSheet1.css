@@ -1,0 +1,359 @@
+﻿/* Set background color and font styles */
+body {
+    background-color: #0e0e0e;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    line-height: 1.5;
+    width: 100%;
+}
+
+/* Header styles */
+header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+    .logo img {
+        width: 100%;
+        height: auto;
+        max-width: 250px;
+    }
+
+header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.main-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+
+.main-nav li {
+    position: relative;
+    margin-right: 20px;
+}
+
+.main-nav a {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0 10px;
+}
+
+    .main-nav a:hover {
+        background-color: #555;
+    }
+
+.main-nav ul ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #1c1c1c;
+    padding: 0;
+    display: none;
+}
+
+    .main-nav ul ul li {
+        display: block;
+        width: 100%;
+    }
+
+        .main-nav ul ul li a {
+            color: #ffffff;
+            font-weight: normal;
+            padding: 10px;
+        }
+
+            .main-nav ul ul li a:hover {
+                color: #1c1c1c;
+            }
+
+.main-nav li:hover > ul {
+    display: block;
+}
+
+/* Main content styles */
+main {
+    margin: 10px;
+    padding: 20px;
+    display: block;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+section h2 a {
+    color: #fff;
+}
+
+section {
+    margin: 20px;
+    padding: 20px;
+    background-color: #1c1c1c;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+    display: block;
+    width: 100%;
+}
+
+    section h2 {
+        margin-bottom: 20px;
+        font-size: 20px;
+    }
+
+    section ul {
+        list-style: none;
+    }
+
+        section ul li {
+            margin-bottom: 10px;
+        }
+
+            section ul li a {
+                color: #fff;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+                section ul li a:hover {
+                    color: #a5a5a5;
+                }
+
+ol {
+    list-style: decimal;
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0 0 0 30px;
+}
+
+    ol li {
+        margin: 10px 0;
+    }
+
+        ol li a {
+            color: #0077c0;
+            text-decoration: none;
+        }
+
+            ol li a:hover {
+                color: #003d;
+                text-decoration: underline;
+            }
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    align-items: center;
+    text-align: center;
+}
+
+    footer p {
+        font-size: 14px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        text-align: center;
+        align-self: center;
+    }
+
+/* Media queries */
+@media (max-width: 768px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    .main-nav {
+        margin-top: 10px;
+    }
+
+        .main-nav ul {
+            flex-direction: column;
+        }
+
+        .main-nav li {
+            margin-right: 0;
+        }
+
+        .main-nav a {
+            padding: 5px;
+        }
+
+        .main-nav ul ul {
+            position: static;
+            background-color: transparent;
+            box-shadow: none;
+        }
+}
+
+/* Custom styles for improved layout/design */
+.container {
+    margin-top: 40px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.col-md-8,
+.col-md-4 {
+    flex-basis: calc(50% - 10px);
+}
+
+@media (max-width: 767px) {
+    .col-md-8,
+    .col-md-4 {
+        flex-basis: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+form {
+    background-color: #0E0E0E;
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    line-height: 1.5;
+    display: block;
+    width: 100%;
+    border-style: none;
+    border-width: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+
+.comment,
+.question {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.media {
+    display: flex;
+    align-items: flex-start;
+}
+
+    .media img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin-right: 20px;
+    }
+
+.media-body {
+    flex: 1;
+}
+
+    .media-body h5 {
+        margin: 0;
+        font-size: 18px;
+    }
+
+    .media-body p {
+        margin-bottom: 0;
+        color: #777;
+    }
+
+.TextBox {
+    background-color: #333333;
+    border-style: none;
+    cursor: text;
+    display: flex;
+    color : white;
+}
+
+table,
+tr,
+td {
+    width: 100%;
+    margin: 10px;
+    padding: 20px;
+}
+
+.Button {
+    border-style: none;
+    border-color: inherit;
+    border-width: medium;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    display: block;
+    vertical-align: central;
+    width: 70px;
+    height:70px;
+}
+
+/* Media queries */
+@media (max-width: 480px) {
+    .col-md-8,
+    .col-md-4 {
+        flex-basis: 100%;
+        margin-bottom: 20px;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+    }
+
+    .main-nav li {
+        margin-right: 0;
+    }
+
+    .main-nav a {
+        padding: 5px;
+    }
+
+    .main-nav ul ul {
+        position: static;
+        background-color: transparent;
+        box-shadow: none;
+    }
+}
+
+.calendar {
+    color: white;
+}
+
+.Cal {
+    background-color: #0E0E0E;
+    border-style: none;
+    color: #FFFFFF;
+}
