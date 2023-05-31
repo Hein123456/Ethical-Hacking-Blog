@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
+using System.Web;
 namespace Ethical_Hacking
 {
     public partial class WebForm6 : System.Web.UI.Page
@@ -82,10 +78,10 @@ namespace Ethical_Hacking
         {
             SqlCommand command;
             string sql = "";
-            
+
             conn = new SqlConnection(constr);
 
-           
+
 
             conn.Open();
 
@@ -99,7 +95,7 @@ namespace Ethical_Hacking
             adapter.InsertCommand.ExecuteNonQuery();
             command.Dispose();
             adapter.Dispose();
-            
+
             sql = @"SELECT * FROM UserComments";
             command = new SqlCommand(sql, conn);
             adapter.SelectCommand = command;
@@ -122,7 +118,7 @@ namespace Ethical_Hacking
 
             conn.Open();
 
-            sql = "UPDATE UserComments SET Username ='" + TextBox3.Text + "', Comment = '" + TextBox4.Text + "', Date =" + DateTime.Parse(TextBox5.Text) + " WHERE Id = "+(TextBox2.Text);
+            sql = "UPDATE UserComments SET Username ='" + TextBox3.Text + "', Comment = '" + TextBox4.Text + "', Date =" + DateTime.Parse(TextBox5.Text) + " WHERE Id = " + (TextBox2.Text);
 
             adapter = new SqlDataAdapter();
 
@@ -145,9 +141,9 @@ namespace Ethical_Hacking
         }
         protected void Button3_Click(object sender, EventArgs e)
         {
-            string delete_query = "DELETE FROM UserComments WHERE Id =" + TextBox1.Text ;
+            string delete_query = "DELETE FROM UserComments WHERE Id =" + TextBox1.Text;
             SqlCommand command;
-          
+
 
             conn = new SqlConnection(constr);
 
@@ -171,10 +167,10 @@ namespace Ethical_Hacking
         }
         public void PopulateComments(int State)
         {
-            
-                
-                if (State == 1)// initial state load first 5
-                {
+
+
+            if (State == 1)// initial state load first 5
+            {
                 SqlCommand command;
                 string sql;
                 conn = new SqlConnection(constr);
@@ -192,12 +188,12 @@ namespace Ethical_Hacking
                 GridView1.DataBind(); //Binding is required for web apps
                 conn.Close();
                 Session["loadindex2"] = 1;
-                }
-                else if ((State == 0)) //back state loade prevoius 5
+            }
+            else if ((State == 0)) //back state loade prevoius 5
+            {
+                if (int.Parse(Session["loadindex2"].ToString()) <= 2) { PopulateComments(1); }
+                else
                 {
-                    if (int.Parse(Session["loadindex2"].ToString()) <= 2) { PopulateComments(1); }
-                    else
-                    {
                     SqlCommand command;
                     string sql;
                     conn = new SqlConnection(constr);
@@ -216,15 +212,15 @@ namespace Ethical_Hacking
                     GridView1.DataSource = ds;
                     GridView1.DataBind(); //Binding is required for web apps
                     conn.Close();
-                   
 
-                        
 
-                       
-                    }
+
+
+
                 }
-                else if ((State == 2)) // next state load next 5
-                {
+            }
+            else if ((State == 2)) // next state load next 5
+            {
                 SqlCommand command;
                 string sql;
                 conn = new SqlConnection(constr);
@@ -243,15 +239,15 @@ namespace Ethical_Hacking
                 GridView1.DataSource = ds;
                 GridView1.DataBind(); //Binding is required for web apps
                 conn.Close();
-                
-                   
-                   
 
-                    
-                }
-            Label11.Text = Session["loadindex2"].ToString();
+
+
 
 
             }
+            Label11.Text = Session["loadindex2"].ToString();
+
+
         }
     }
+}

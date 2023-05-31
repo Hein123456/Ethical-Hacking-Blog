@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using ProfanityFilter;
-using ProfanityFilter.Interfaces;
+using System.Data.SqlClient;
 
 namespace Ethical_Hacking
 {
@@ -18,7 +11,7 @@ namespace Ethical_Hacking
         public SqlConnection conn;
         public SqlDataAdapter adapter;
         public DataSet ds;
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["loadindex"] != null)
@@ -51,7 +44,7 @@ namespace Ethical_Hacking
             Label9.Text = "";
             Label10.Text = "";
         }
-            protected void PopulateComments(int state)
+        protected void PopulateComments(int state)
         {
             // Call method to clear all textboxes
             ClearComments();
@@ -104,13 +97,15 @@ namespace Ethical_Hacking
 
                 conn.Close();
                 Session["loadindex"] = 1; // loadindex used to keep track of current page
-            } else if ((state == 0)) //back state loade prevoius 5 comments
+            }
+            else if ((state == 0)) //back state loade prevoius 5 comments
             {
                 if (int.Parse(Session["loadindex"].ToString()) <= 2) // check if current page is page 2 or more (check if there is a prevoius page to load else load page 1)
-                { 
-                    PopulateComments(1); 
-                } else 
-                { 
+                {
+                    PopulateComments(1);
+                }
+                else
+                {
                     SqlCommand command;
                     string sql;
                     conn = new SqlConnection(constr);
@@ -160,7 +155,8 @@ namespace Ethical_Hacking
                     }
 
                     conn.Close();
-                } }
+                }
+            }
             else if ((state == 2)) // next state load next 5 comments
             {
                 SqlCommand command;
@@ -230,7 +226,7 @@ namespace Ethical_Hacking
             dataReader = command.ExecuteReader();
             while (dataReader.Read())
             {
-                Output =dataReader.GetInt32(0);
+                Output = dataReader.GetInt32(0);
 
             }
             dataReader.Close();
@@ -241,19 +237,19 @@ namespace Ethical_Hacking
             string Comment = detector.CensorString(TextBox2.Text);
 
             Output++; //increase the number of comments to get the next ID
-            sql = "INSERT INTO UserComments VALUES ("+Output+",'"+username+"','"+Comment+"','"+DateTime.Now.ToString()+"')";
+            sql = "INSERT INTO UserComments VALUES (" + Output + ",'" + username + "','" + Comment + "','" + DateTime.Now.ToString() + "')";
 
             adapter = new SqlDataAdapter();
-           
+
 
             command = new SqlCommand(sql, conn);
             adapter.InsertCommand = new SqlCommand(sql, conn);
             adapter.InsertCommand.ExecuteNonQuery();
             command.Dispose();
             adapter.Dispose();
-           
 
- // show all comments
+
+            // show all comments
             sql = @"SELECT * FROM UserComments";
             command = new SqlCommand(sql, conn);
             dataReader = command.ExecuteReader();
@@ -294,8 +290,8 @@ namespace Ethical_Hacking
             }
 
             conn.Close();
-            Session["loadindex"] =  1;
-            
+            Session["loadindex"] = 1;
+
         }
 
         protected void Button2_Click(object sender, EventArgs e)
