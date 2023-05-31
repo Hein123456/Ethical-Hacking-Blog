@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'HackingBog'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0A6EA68E319B4187A3F9A6F9E6A71111 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_645CA34D80CA46A4954B37A832D0F3FE }}
           package: .
