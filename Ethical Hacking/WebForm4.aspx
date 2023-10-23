@@ -23,7 +23,7 @@
         <li><a href="WebForm4.aspx">Linux Basics</a></li>
       </ul>
     </li>
-	   <li><a href="WebForm5.aspx">Q&A</a></li>
+	 
   </ul>
 </nav>
 	</header>
